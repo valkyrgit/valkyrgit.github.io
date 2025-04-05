@@ -31,3 +31,26 @@
   --text-shadow-color: #ff00ff; /* Magenta glow */
   --box-shadow: 0 0 15px;
 }
+
+/* Fix for shifted login box */
+#login {
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin-top: 0 !important;
+    height: auto !important;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Adjust header positioning */
+.custom-text-header {
+    top: 10% !important;
+    transform: translate(-50%, 0) !important;
+}
+
+/* Ensure body has proper dimensions */
+body, html {
+    height: 100% !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+}
