@@ -55,7 +55,7 @@ body, html {
     overflow: hidden !important;
 }
 /* Fix logout message animation */
-#login .success {
+#login .error {
     animation: none !important; /* Remove shaking */
     text-shadow: 0 0 8px var(--text-shadow-color) !important;
     color: var(--text-color) !important;
