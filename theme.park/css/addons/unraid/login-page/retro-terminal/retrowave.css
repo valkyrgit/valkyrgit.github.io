@@ -1,0 +1,33 @@
+/*_____________________RETROWAVE_THEME______________________*/
+/* --body-before:#ff00cc1a; /* This is the background that creates the crt lines, background uses a transparency of 10% SET TO NONE TO REMOVE CRT EFFECT */
+/* --body-after: #ff00cc33; /* This is the background that creates the crt lines, background uses a transparency of 20% SET TO NONE TO REMOVE CRT EFFECT */
+/* --body-animation: flicker; This is the background that flickers. SET TO NONE TO REMOVE THE FLICKER ANIMATION! */
+/* --custom-text-header-animation: textflicker; /* SET TO NONE TO REMOVE THE FLICKER ANIMATION! */
+
+@import url(/theme.park/css/addons/unraid/login-page/retro-terminal/retrowave-terminal-base.css);
+:root {
+  --main-bg-color: #0f0f1a; /* Dark blue background */
+  --body-before: #ff00cc1a;
+  --body-after: #ff00cc33;
+  --body-animation: flicker;
+  --logo: url(/theme.park/css/addons/unraid/login-page/alien/logo/wings_red.png) center no-repeat;
+  --text-color: #00f0ff; /* Cyan text */
+  --input-color: #ff00ff; /* Magenta input */
+  --link-color: #ff00ff; /* Magenta links */
+  --link-color-hover: #00f0ff; /* Cyan hover */
+  --case-color: #ff00ff; /* Magenta case */
+  --button-text-color: #0f0f1a; /* Dark blue text */
+  --button-text-color-hover: #0f0f1a; /* Dark blue text on hover */
+  --button-color: #ff00ff; /* Magenta button */
+  --button-color-hover: #00f0ff; /* Cyan button hover */
+  --selection-color: #ff00ff; /* Magenta selection */
+  --custom-text-header: #00f0ff; /* Cyan header */
+  --custom-text-header-shadow: #ff00ff; /* Magenta shadow */
+  --custom-text-header-animation: textflicker;
+  --input-font: 'Share Tech Mono', monospace;
+  --text-font: 'Share Tech Mono', monospace;
+  --loginbox-background-color: rgba(15, 15, 26, 0.7); /* Semi-transparent dark blue */
+  --text-shadow: 0 0 8px;
+  --text-shadow-color: #ff00ff; /* Magenta glow */
+  --box-shadow: 0 0 15px;
+}

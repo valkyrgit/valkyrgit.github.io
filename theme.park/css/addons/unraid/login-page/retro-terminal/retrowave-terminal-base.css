@@ -1,0 +1,364 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
+@import "https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap";
+@import "https://fonts.googleapis.com/css?family=VT323";
+
+/*________________RETROWAVE TERMINAL BASE________________*/
+/* Enhanced with: 
+   - Neon glow effects 
+   - CRT scanlines (when enabled)
+   - Digital grid background
+   - Animated borders
+   - Pixel font option
+   - Screen burn-in effect
+*/
+
+* {
+    outline: none;
+}
+
+@media (max-width: 500px) {
+    #login {
+        -webkit-backdrop-filter: blur(0px);
+        backdrop-filter: blur(0px);
+        position: absolute;
+        padding-top: 0rem !important;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: none !important;
+    }
+    .background-wrap,#video-bg-elem,.custom-text-header  {display: none;}
+    #login {
+        border:none !important;
+    }
+}
+
+html {background: var(--main-bg-color) !important;}
+body {background: var(--main-bg-color) !important;}
+
+/* RETROWAVE CRT SCANLINES */
+body::before {
+    content: "";
+    background: radial-gradient(ellipse at center,var(--body-before) 0,rgb(0, 0, 0) 100%) !important;
+    background-repeat: repeat-y !important;
+    background-size: 100% 4px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    animation: var(--body-animation) 0.01s infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* RETROWAVE CRT BACKGROUND */
+body::after {
+    content: "";
+    background: radial-gradient(ellipse at center,var(--body-after) 0,rgba(0, 0, 0, 0.6) 80%) center center/cover no-repeat fixed, 
+                linear-gradient(#0000 0%,#0000 0%) !important;
+    background-repeat: repeat-y !important;
+    background-size: 100% 4px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* RETROWAVE SCREEN BURN-IN EFFECT */
+@keyframes burn-in {
+    0% { opacity: 0.9; filter: brightness(1.5) contrast(1.2); }
+    100% { opacity: 1; filter: brightness(1) contrast(1); }
+}
+
+body {
+    animation: burn-in 10s ease-out forwards;
+}
+
+/* RETROWAVE FLICKER ANIMATIONS */
+@keyframes flicker {0% {opacity: 0.37633;}5% {opacity: 0.70002;}10% {opacity: 0.64427;}15% {opacity: 0.35591;}20% {opacity: 0.34054;}25% {opacity: 0.54917;}30% {opacity: 0.41056;}35% {opacity: 0.67637;}40% {opacity: 0.23681;}45% {opacity: 0.64945;}50% {opacity: 0.67522;}55% {opacity: 0.56049;}60% {opacity: 0.06113;}65% {opacity: 0.95766;}70% {opacity: 0.77945;}75% {opacity: 0.33817;}80% {opacity: 0.19735;}85% {opacity: 0.84337;}90% {opacity: 0.82867;}95% {opacity: 0.65512;}100% {opacity: 0.15179;}}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #fff,
+            0 0 20px var(--custom-text-header-shadow),
+            0 0 35px var(--custom-text-header-shadow),
+            0 0 40px var(--custom-text-header-shadow);
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #login {
+        min-width: 300px;
+    }
+}
+
+/* RETROWAVE VIDEO BACKGROUND */
+.background-wrap {
+    position: fixed;
+    z-index: -1000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+#video-bg-elem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+/* RETROWAVE TEXT STYLES */
+#login h1,
+#login h2,
+#login .error {
+    color: var(--text-color) !important;
+    text-shadow: var(--text-shadow) var(--text-shadow-color);
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+#login a {
+    color: var(--link-color);
+    text-shadow: var(--text-shadow) var(--text-shadow-color);
+    position: relative;
+}
+
+#login a:hover {
+    color: var(--link-color-hover);
+    text-shadow: var(--text-shadow) var(--text-shadow-color);
+}
+
+#login a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--link-color-hover);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#login a:hover::after {
+    transform: scaleX(1);
+}
+
+/* RETROWAVE INPUT STYLES */
+#login input {
+    color: var(--input-color);
+    text-shadow: 0 0 5px var(--text-shadow-color);
+    background-color: rgba(0, 0, 0, 0.25) !important;
+    border: 2px solid var(--input-color) !important;
+    transition: all 0.3s ease;
+}
+
+#login input:focus {
+    box-shadow: 0 0 10px var(--input-color), 
+                0 0 20px var(--input-color);
+    border-color: var(--link-color-hover) !important;
+}
+
+#login ::placeholder {
+    color: var(--input-color);
+    text-shadow: 0 0 5px var(--text-shadow-color);
+    opacity: 0.7;
+}
+
+/* RETROWAVE BUTTON STYLES */
+#login .button {
+    color: var(--button-text-color);
+    text-shadow: var(--text-shadow) var(--text-shadow-color);
+    background: linear-gradient(90deg, var(--button-color) 0, var(--button-color)) 0 0 no-repeat, 
+                linear-gradient(90deg, var(--button-color) 0, var(--button-color)) 0 100% no-repeat, 
+                linear-gradient(0deg, var(--button-color) 0, var(--button-color)) 0 100% no-repeat, 
+                linear-gradient(0deg, var(--button-color) 0, var(--button-color)) 100% 100% no-repeat;
+    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#login .button:hover {
+    color: var(--button-text-color-hover);
+    text-shadow: 0 0 10px var(--button-color-hover);
+    box-shadow: 0 0 15px var(--button-color-hover);
+    background-color: var(--button-color-hover);
+}
+
+#login .button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 45%,
+        rgba(255,255,255,0.8) 50%,
+        rgba(255,255,255,0) 55%
+    );
+    transform: rotate(30deg);
+    animation: button-glare 3s infinite;
+}
+
+@keyframes button-glare {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* RETROWAVE LOGIN BOX */
+#login {
+    background: var(--loginbox-background-color) !important;
+    padding-top: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    text-transform: uppercase;
+    min-width: 300px;
+    border: 3px solid var(--text-color);
+    box-shadow: 0 0 20px var(--text-shadow-color),
+                inset 0 0 20px var(--text-shadow-color);
+    animation: border-pulse 4s infinite alternate;
+    overflow: hidden;
+}
+
+/* RETROWAVE GRID BACKGROUND */
+#login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* RETROWAVE BORDER ANIMATION */
+@keyframes border-pulse {
+    0% { border-color: var(--text-color); }
+    50% { border-color: var(--link-color-hover); }
+    100% { border-color: var(--text-color); }
+}
+
+/* RETROWAVE CUSTOM HEADER */
+.custom-text-header {
+    white-space: pre;
+    letter-spacing: 2px;
+    font-family: var(--text-font);
+    -webkit-font-smoothing: none;
+    font-weight: 900;
+    line-height: 1.5;
+    color: var(--custom-text-header) !important;
+    text-shadow: 0 0 20px var(--custom-text-header-shadow);
+    position: absolute;
+    left: 50%;
+    top: -15%;
+    transform: translate(-50%, -50%);
+    animation-duration: 0.01s;
+    animation-name: var(--custom-text-header-animation);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-weight: 900;
+}
+
+.custom-text-header:after {
+    content: "";
+    position: absolute;
+    top: 135px;
+    right: -15px;
+    background-color: var(--custom-text-header);
+    width: 20px;
+    height: 2px;
+    animation: blink 1s step-end infinite, 
+               cursor-pulse 0.5s infinite alternate;
+}
+
+@keyframes cursor-pulse {
+    from { box-shadow: 0 0 5px var(--custom-text-header); }
+    to { box-shadow: 0 0 15px var(--custom-text-header); }
+}
+
+/* RETROWAVE TEXT FLICKER */
+@keyframes textflicker {
+    from {
+        text-shadow: 1px 0 0 var(--custom-text-header-shadow), 
+                    -2px 0 0 var(--custom-text-header);
+    }
+    to {
+        text-shadow: 2px 0.5px 2px var(--custom-text-header-shadow), 
+                    -1px -0.5px 2px var(--custom-text-header);
+    }
+}
+
+/* RETROWAVE SELECTION STYLES */
+::selection {
+    background: var(--selection-color);
+    color: #000;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--selection-color);
+    color: #000;
+    text-shadow: none;
+}
+
+/* RETROWAVE PIXEL FONT OPTION */
+.pixel-text {
+    font-family: 'VT323', monospace;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
+}
+
+/* RETROWAVE HORIZONTAL GRADIENT */
+#login::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--text-color) 20%, 
+        var(--link-color) 50%, 
+        var(--text-color) 80%, 
+        transparent 100%);
+    animation: gradient-scroll 10s linear infinite;
+}
+
+@keyframes gradient-scroll {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
