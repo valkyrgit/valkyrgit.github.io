@@ -54,3 +54,54 @@ body, html {
     min-height: 100vh !important;
     overflow: hidden !important;
 }
+/* Fix logout message animation */
+#login .success {
+    animation: none !important; /* Remove shaking */
+    text-shadow: 0 0 8px var(--text-shadow-color) !important;
+    color: var(--text-color) !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* Optional: Add smooth fade-in instead */
+#login .success {
+    animation: fadeIn 1s ease-out !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Reduce flicker animation speed */
+@keyframes flicker {
+    0%, 15%, 30%, 45%, 60%, 75%, 90% { opacity: 0.9; }
+    7%, 22%, 37%, 52%, 67%, 82%, 97% { opacity: 0.7; }
+}
+
+/* Slow down text flicker */
+@keyframes textflicker {
+    0%, 80% {
+        text-shadow: 1px 0 0 var(--custom-text-header-shadow), 
+                    -2px 0 0 var(--custom-text-header);
+    }
+    20%, 60% {
+        text-shadow: 2px 0.5px 2px var(--custom-text-header-shadow), 
+                    -1px -0.5px 2px var(--custom-text-header);
+    }
+    40% {
+        text-shadow: none;
+    }
+}
+
+/* Apply slower animation timing */
+body::before {
+    animation: flicker 5s infinite !important; /* Slowed from 0.01s */
+}
+
+.custom-text-header {
+    animation: textflicker 8s infinite alternate !important; /* Slowed from 0.01s */
+    animation-timing-function: ease-in-out !important;
+}
+
